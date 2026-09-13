@@ -9,117 +9,107 @@ function App() {
   const [cart, setCart] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
 
-  const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
-      const matchesCategory = category === 'All' || product.category === category
-      const matchesSearch = product.name.toLowerCase().includes(search.toLowerCase())
-      return matchesCategory && matchesSearch
-    })
-  }, [category, search])
+  const filteredProducts = useMemo(() => products.filter((product) => {
+    const q = search.toLowerCase()
+    return (category === 'All' || product.category === category) && (product.name.toLowerCase().includes(q) || product.category.toLowerCase().includes(q))
+  }), [category, search])
 
   const addToCart = (product) => {
     setCart((current) => {
       const existing = current.find((item) => item.id === product.id)
-      if (existing) {
-        return current.map((item) => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item)
-      }
-      return [...current, { ...product, quantity: 1 }]
+      return existing
+        ? current.map((item) => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item)
+        : [...current, { ...product, quantity: 1 }]
     })
     setCartOpen(true)
   }
 
-  const changeQuantity = (id, amount) => {
-    setCart((current) => current
-      .map((item) => item.id === id ? { ...item, quantity: item.quantity + amount } : item)
-      .filter((item) => item.quantity > 0))
-  }
+  const changeQuantity = (id, amount) => setCart((current) => current
+    .map((item) => item.id === id ? { ...item, quantity: item.quantity + amount } : item)
+    .filter((item) => item.quantity > 0))
 
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0)
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
   return (
     <div className="app-shell">
+      <div className="announcement">Complimentary Gauteng delivery on selected premium orders over R10,000</div>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Little Nest home">
-          <span className="brand-mark">LN</span>
-          <span><strong>Little Nest</strong><small>Baby essentials, made simple</small></span>
-        </a>
-        <nav className="desktop-nav">
-          <a href="#shop">Shop</a>
-          <a href="#why-us">Why us</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button className="cart-button" onClick={() => setCartOpen(true)}>Cart <span>{itemCount}</span></button>
+        <a className="brand" href="#top"><span className="brand-mark">LN</span><span><strong>Little Nest</strong><small>Premium baby gear</small></span></a>
+        <nav className="desktop-nav"><a href="#shop">Shop</a><a href="#collections">Collections</a><a href="#why-us">Our standard</a></nav>
+        <button className="cart-button" onClick={() => setCartOpen(true)}>Bag <span>{itemCount}</span></button>
       </header>
 
       <main id="top">
-        <section className="hero">
+        <section className="hero premium-hero">
           <div className="hero-copy">
-            <span className="eyebrow">For tiny humans & big love</span>
-            <h1>Everyday baby essentials for softer, simpler days.</h1>
-            <p>Thoughtfully selected products for feeding, sleep, play, bath time and every little adventure in between.</p>
-            <div className="hero-actions">
-              <a className="primary-button" href="#shop">Shop the collection</a>
-              <a className="text-link" href="#why-us">Why parents choose us →</a>
-            </div>
-            <div className="hero-points"><span>✓ South Africa delivery</span><span>✓ Secure checkout ready</span><span>✓ Parent-friendly support</span></div>
+            <span className="eyebrow">Premium baby gear • South Africa</span>
+            <h1>Beautiful gear for life with baby.</h1>
+            <p>Curated prams, travel systems, car seats, nursery pieces and baby technology chosen for families who want safety, design and quality without compromise.</p>
+            <div className="hero-actions"><a className="primary-button" href="#shop">Shop premium gear</a><a className="text-link" href="#collections">Explore collections →</a></div>
+            <div className="hero-points"><span>✓ Premium selection</span><span>✓ South African pricing</span><span>✓ Secure checkout coming next</span></div>
           </div>
-          <div className="hero-art" aria-label="Baby essentials illustration">
-            <div className="hero-card card-one">🍼<small>Feeding</small></div>
-            <div className="hero-card card-two">🧸<small>Comfort</small></div>
-            <div className="hero-card card-three">🌙<small>Sleep</small></div>
-            <div className="hero-bubble"></div>
+          <div className="hero-showcase">
+            <div className="showcase-kicker">THE TRAVEL EDIT</div>
+            <div className="showcase-product">AERO<br/>LUXE</div>
+            <div className="showcase-footer"><span>3-in-1 Travel System</span><strong>{money(8999)}</strong></div>
           </div>
+        </section>
+
+        <section className="collection-strip" id="collections">
+          <div><small>01</small><strong>Travel Systems</strong><span>From R8 999</span></div>
+          <div><small>02</small><strong>Car Seats</strong><span>Safety, elevated</span></div>
+          <div><small>03</small><strong>Nursery</strong><span>Designed to last</span></div>
+          <div><small>04</small><strong>Baby Tech</strong><span>Smarter peace of mind</span></div>
         </section>
 
         <section className="section" id="shop">
           <div className="section-heading">
-            <div><span className="eyebrow">Shop baby essentials</span><h2>Made for the moments that matter.</h2></div>
-            <label className="search-box"><span>⌕</span><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search products" /></label>
+            <div><span className="eyebrow">The premium collection</span><h2>Statement pieces. Serious function.</h2></div>
+            <label className="search-box"><span>⌕</span><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search prams, car seats, nursery..." /></label>
           </div>
 
-          <div className="category-row">
-            {categories.map((item) => <button key={item} className={category === item ? 'active' : ''} onClick={() => setCategory(item)}>{item}</button>)}
-          </div>
+          <div className="category-row">{categories.map((item) => <button key={item} className={category === item ? 'active' : ''} onClick={() => setCategory(item)}>{item}</button>)}</div>
 
-          <div className="product-grid">
-            {filteredProducts.map((product) => (
-              <article className="product-card" key={product.id}>
-                <div className="product-visual"><span>{product.icon}</span><b>{product.category}</b></div>
+          <div className="product-grid premium-grid">
+            {filteredProducts.map((product, index) => (
+              <article className="product-card premium-card" key={product.id}>
+                <div className={`product-visual tone-${product.tone}`}>
+                  <div className="visual-index">{String(index + 1).padStart(2, '0')}</div>
+                  <span className="visual-tag">{product.tag}</span>
+                  <div className="visual-name">{product.category}</div>
+                  <div className="visual-shape"><i></i><b></b><em></em></div>
+                </div>
                 <div className="product-info">
                   <div className="product-top"><h3>{product.name}</h3><strong>{money(product.price)}</strong></div>
                   <p>{product.description}</p>
-                  <button onClick={() => addToCart(product)}>Add to cart</button>
+                  <button onClick={() => addToCart(product)}>Add to bag</button>
                 </div>
               </article>
             ))}
           </div>
-          {filteredProducts.length === 0 && <div className="empty-state">No products found. Try another search or category.</div>}
+          {filteredProducts.length === 0 && <div className="empty-state">No premium products found. Try another search or category.</div>}
+        </section>
+
+        <section className="editorial-banner">
+          <div><span className="eyebrow">Built around real family life</span><h2>Premium does not mean complicated.</h2></div>
+          <p>We focus on the pieces parents use every day: travel systems that fold beautifully, car seats that prioritise safety, nursery furniture that earns its space, and technology that genuinely helps.</p>
         </section>
 
         <section className="trust-section" id="why-us">
-          <div><span>01</span><h3>Baby-first selection</h3><p>A focused catalogue that keeps shopping calm and uncomplicated.</p></div>
-          <div><span>02</span><h3>Built for local families</h3><p>Pricing in rand, South African delivery messaging and a store designed for mobile shoppers.</p></div>
-          <div><span>03</span><h3>Ready to grow</h3><p>The starter can be connected to real stock, customer accounts and online payments next.</p></div>
-        </section>
-
-        <section className="newsletter" id="contact">
-          <div><span className="eyebrow">Join the nest</span><h2>Offers, new arrivals and parent-friendly finds.</h2></div>
-          <form onSubmit={(event) => event.preventDefault()}><input type="email" placeholder="Email address" required /><button>Keep me updated</button></form>
+          <div><span>01</span><h3>Safety-led selection</h3><p>Our range is positioned around trusted features like ISOFIX, i-Size compatibility, impact protection and practical everyday usability.</p></div>
+          <div><span>02</span><h3>Premium, not overpriced</h3><p>South African pricing with a curated range across accessible premium and luxury tiers.</p></div>
+          <div><span>03</span><h3>Designed to feel special</h3><p>No bargain-bin presentation. The store is built around considered products, clean design and a luxury retail experience.</p></div>
         </section>
       </main>
 
-      <footer><div className="brand"><span className="brand-mark">LN</span><span><strong>Little Nest</strong><small>Baby essentials, made simple</small></span></div><p>© 2026 Little Nest. Built with care in South Africa.</p></footer>
+      <footer><div className="brand"><span className="brand-mark">LN</span><span><strong>Little Nest</strong><small>Premium baby gear</small></span></div><p>© 2026 Little Nest • South Africa</p></footer>
 
-      {cartOpen && <div className="cart-overlay" onClick={() => setCartOpen(false)}>
-        <aside className="cart-drawer" onClick={(event) => event.stopPropagation()}>
-          <div className="cart-header"><div><span className="eyebrow">Your basket</span><h2>{itemCount} {itemCount === 1 ? 'item' : 'items'}</h2></div><button className="close-button" onClick={() => setCartOpen(false)}>×</button></div>
-          <div className="cart-items">
-            {cart.length === 0 ? <div className="cart-empty"><span>🧺</span><h3>Your basket is empty</h3><p>Add something lovely for the little one.</p></div> : cart.map((item) => <div className="cart-item" key={item.id}><div className="cart-icon">{item.icon}</div><div className="cart-item-copy"><strong>{item.name}</strong><small>{money(item.price)}</small><div className="quantity"><button onClick={() => changeQuantity(item.id, -1)}>−</button><span>{item.quantity}</span><button onClick={() => changeQuantity(item.id, 1)}>+</button></div></div><b>{money(item.price * item.quantity)}</b></div>)}
-          </div>
-          <div className="cart-footer"><div><span>Subtotal</span><strong>{money(subtotal)}</strong></div><small>Delivery and payment options will be added at checkout.</small><button className="checkout-button" disabled={!cart.length}>Continue to checkout</button></div>
-        </aside>
-      </div>}
+      {cartOpen && <div className="cart-overlay" onClick={() => setCartOpen(false)}><aside className="cart-drawer" onClick={(e) => e.stopPropagation()}>
+        <div className="cart-header"><div><span className="eyebrow">Your bag</span><h2>{itemCount} {itemCount === 1 ? 'item' : 'items'}</h2></div><button className="close-button" onClick={() => setCartOpen(false)}>×</button></div>
+        <div className="cart-items">{cart.length === 0 ? <div className="cart-empty"><h3>Your bag is empty</h3><p>Add a premium piece to begin your order.</p></div> : cart.map((item) => <div className="cart-item" key={item.id}><div className={`cart-icon tone-${item.tone}`}></div><div className="cart-item-copy"><strong>{item.name}</strong><small>{money(item.price)}</small><div className="quantity"><button onClick={() => changeQuantity(item.id, -1)}>−</button><span>{item.quantity}</span><button onClick={() => changeQuantity(item.id, 1)}>+</button></div></div><b>{money(item.price * item.quantity)}</b></div>)}</div>
+        <div className="cart-footer"><div><span>Subtotal</span><strong>{money(subtotal)}</strong></div><small>Delivery and payment options will be confirmed at checkout.</small><button className="checkout-button" disabled={!cart.length}>Continue to checkout</button></div>
+      </aside></div>}
     </div>
   )
 }
