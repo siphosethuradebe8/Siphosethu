@@ -12,43 +12,65 @@ const categoryImages = {
     'https://doona.shop/cdn/shop/files/Doona_i_Desert_Green_Listing_1600x1600_5_1600x.png?v=1774357640'
   ],
   'Car Seats': [
-    'https://carseatninja.com/cdn/shop/products/DUALFIX_M_PLUS_SpaceBlack_02_2022_72dpi_2000x2000_d3debed8-2bee-444e-943a-345c19b7c9f2.png?v=1667854437&width=1946',
-    'https://www.mamasandpapas.com/cdn/shop/products/maxi-cosi-baby-car-seats-maxi-cosi-pearl-360-pro-car-seat-in-black-34290943262885_1200x1200.jpg?v=1733906407',
-    'https://juniorbambinos.com/cdn/shop/files/Coco-i-Size-Car-Seat-with-Isofix-Base-babymore5_0bc4ee2b-28c3-424a-b576-19302f010086.webp?crop=center&height=1200&v=1703845764&width=1200',
-    'https://carseatninja.com/cdn/shop/products/DUALFIX_M_PLUS_SpaceBlack_02_2022_72dpi_2000x2000_d3debed8-2bee-444e-943a-345c19b7c9f2.png?v=1667854437&width=1946',
-    'https://www.mamasandpapas.com/cdn/shop/products/maxi-cosi-baby-car-seats-maxi-cosi-pearl-360-pro-car-seat-in-black-34290943262885_1200x1200.jpg?v=1733906407',
-    'https://juniorbambinos.com/cdn/shop/files/Coco-i-Size-Car-Seat-with-Isofix-Base-babymore5_0bc4ee2b-28c3-424a-b576-19302f010086.webp?crop=center&height=1200&v=1703845764&width=1200',
-    'https://carseatninja.com/cdn/shop/products/DUALFIX_M_PLUS_SpaceBlack_02_2022_72dpi_2000x2000_d3debed8-2bee-444e-943a-345c19b7c9f2.png?v=1667854437&width=1946',
-    'https://www.mamasandpapas.com/cdn/shop/products/maxi-cosi-baby-car-seats-maxi-cosi-pearl-360-pro-car-seat-in-black-34290943262885_1200x1200.jpg?v=1733906407',
-    'https://juniorbambinos.com/cdn/shop/files/Coco-i-Size-Car-Seat-with-Isofix-Base-babymore5_0bc4ee2b-28c3-424a-b576-19302f010086.webp?crop=center&height=1200&v=1703845764&width=1200',
-    'https://www.mamasandpapas.com/cdn/shop/products/maxi-cosi-baby-car-seats-maxi-cosi-pearl-360-pro-car-seat-in-black-34290943262885_1200x1200.jpg?v=1733906407'
+    'https://loremflickr.com/900/700/baby,carseat?lock=101',
+    'https://loremflickr.com/900/700/infant,carseat?lock=102',
+    'https://loremflickr.com/900/700/baby,carrier,carseat?lock=103',
+    'https://loremflickr.com/900/700/child,carseat?lock=104',
+    'https://loremflickr.com/900/700/toddler,carseat?lock=105',
+    'https://loremflickr.com/900/700/rearfacing,carseat?lock=106',
+    'https://loremflickr.com/900/700/infant,seat?lock=107',
+    'https://loremflickr.com/900/700/isofix,carseat?lock=108',
+    'https://loremflickr.com/900/700/luxury,carseat?lock=109',
+    'https://loremflickr.com/900/700/booster,seat,child?lock=110'
   ],
   'Nursery': [
-    'https://www.babyelegance.com/cdn/shop/files/043024_BabyElegance_Store5609.jpg?v=1714643233&width=1500',
-    'https://uk.momcozy.com/cdn/shop/files/1.0.png?v=1757318953&width=600',
-    'https://static-data2.manualslib.com/product-images/d5d/1184634/mothercare-solna-indoor-furnishing.jpg',
-    'https://www.babyelegance.com/cdn/shop/files/043024_BabyElegance_Store5609.jpg?v=1714643233&width=1500',
-    'https://uk.momcozy.com/cdn/shop/files/1.0.png?v=1757318953&width=600',
-    'https://static-data2.manualslib.com/product-images/d5d/1184634/mothercare-solna-indoor-furnishing.jpg',
-    'https://www.babyelegance.com/cdn/shop/files/043024_BabyElegance_Store5609.jpg?v=1714643233&width=1500',
-    'https://uk.momcozy.com/cdn/shop/files/1.0.png?v=1757318953&width=600',
-    'https://static-data2.manualslib.com/product-images/d5d/1184634/mothercare-solna-indoor-furnishing.jpg',
-    'https://www.babyelegance.com/cdn/shop/files/043024_BabyElegance_Store5609.jpg?v=1714643233&width=1500'
+    'https://loremflickr.com/900/700/baby,cot,nursery?lock=201',
+    'https://loremflickr.com/900/700/baby,bedside,crib?lock=202',
+    'https://loremflickr.com/900/700/wooden,cot,nursery?lock=203',
+    'https://loremflickr.com/900/700/bassinet,baby?lock=204',
+    'https://loremflickr.com/900/700/baby,bouncer?lock=205',
+    'https://loremflickr.com/900/700/changing,table,nursery?lock=206',
+    'https://loremflickr.com/900/700/nursery,wardrobe?lock=207',
+    'https://loremflickr.com/900/700/moses,basket,baby?lock=208',
+    'https://loremflickr.com/900/700/baby,swing?lock=209',
+    'https://loremflickr.com/900/700/nursery,rocking,chair?lock=210'
   ],
   'Baby Tech': [
-    'https://cdn-web.vtp-media.com/products/VM/VM320/VM320_combo_L3Q.jpg',
-    'https://i5.walmartimages.com/asr/5f47338e-11a4-412d-88cc-975670683ae9.e34aa5d3f800fa024243f9b73597a082.jpeg?odnBg=FFFFFF&odnHeight=768&odnWidth=768',
-    'https://cdn-web.vtp-media.com/products/VM/VM320/VM320_combo_L3Q.jpg',
-    'https://i5.walmartimages.com/asr/5f47338e-11a4-412d-88cc-975670683ae9.e34aa5d3f800fa024243f9b73597a082.jpeg?odnBg=FFFFFF&odnHeight=768&odnWidth=768',
-    'https://cdn-web.vtp-media.com/products/VM/VM320/VM320_combo_L3Q.jpg',
-    'https://i5.walmartimages.com/asr/5f47338e-11a4-412d-88cc-975670683ae9.e34aa5d3f800fa024243f9b73597a082.jpeg?odnBg=FFFFFF&odnHeight=768&odnWidth=768',
-    'https://cdn-web.vtp-media.com/products/VM/VM320/VM320_combo_L3Q.jpg',
-    'https://i5.walmartimages.com/asr/5f47338e-11a4-412d-88cc-975670683ae9.e34aa5d3f800fa024243f9b73597a082.jpeg?odnBg=FFFFFF&odnHeight=768&odnWidth=768',
-    'https://cdn-web.vtp-media.com/products/VM/VM320/VM320_combo_L3Q.jpg',
-    'https://i5.walmartimages.com/asr/5f47338e-11a4-412d-88cc-975670683ae9.e34aa5d3f800fa024243f9b73597a082.jpeg?odnBg=FFFFFF&odnHeight=768&odnWidth=768'
+    'https://loremflickr.com/900/700/baby,monitor,camera?lock=301',
+    'https://loremflickr.com/900/700/baby,wearable,monitor?lock=302',
+    'https://loremflickr.com/900/700/bottle,sterilizer,baby?lock=303',
+    'https://loremflickr.com/900/700/formula,maker,baby?lock=304',
+    'https://loremflickr.com/900/700/nightlight,baby,nursery?lock=305',
+    'https://loremflickr.com/900/700/room,thermometer,baby?lock=306',
+    'https://loremflickr.com/900/700/digital,thermometer,baby?lock=307',
+    'https://loremflickr.com/900/700/video,baby,monitor?lock=308',
+    'https://loremflickr.com/900/700/smart,baby,camera?lock=309',
+    'https://loremflickr.com/900/700/humidifier,nursery?lock=310'
   ],
-  'Feeding': Array(10).fill('https://mamasandpapas.ae/on/demandware.static/-/Sites-MnP-master-catalog/default/dw4112c48b/sfcc-mnp-production/2/1/9/2/4/219245963_FR.jpg'),
-  'On The Go': Array(10).fill('https://babybeeonline.com/cdn/shop/files/BBAU_2025_WEBSITE_JOEY_PRODUCTMAINCAROUSEL_316f29f0-e8b0-4628-bd7f-4c4d1c2b7a76.png?v=1752470194&width=1200')
+  'Feeding': [
+    'https://loremflickr.com/900/700/wooden,highchair,baby?lock=401',
+    'https://loremflickr.com/900/700/reclining,highchair,baby?lock=402',
+    'https://loremflickr.com/900/700/rotating,highchair,baby?lock=403',
+    'https://loremflickr.com/900/700/padded,highchair,baby?lock=404',
+    'https://loremflickr.com/900/700/modern,highchair,baby?lock=405',
+    'https://loremflickr.com/900/700/minimal,highchair,baby?lock=406',
+    'https://loremflickr.com/900/700/table,booster,baby?lock=407',
+    'https://loremflickr.com/900/700/designer,highchair,baby?lock=408',
+    'https://loremflickr.com/900/700/premium,highchair,baby?lock=409',
+    'https://loremflickr.com/900/700/folding,highchair,baby?lock=410'
+  ],
+  'On The Go': [
+    'https://loremflickr.com/900/700/baby,carrier,parent?lock=501',
+    'https://loremflickr.com/900/700/mesh,baby,carrier?lock=502',
+    'https://loremflickr.com/900/700/hiking,child,carrier?lock=503',
+    'https://loremflickr.com/900/700/baby,wrap,carrier?lock=504',
+    'https://loremflickr.com/900/700/front,baby,carrier?lock=505',
+    'https://loremflickr.com/900/700/diaper,backpack,baby?lock=506',
+    'https://loremflickr.com/900/700/stroller,organizer?lock=507',
+    'https://loremflickr.com/900/700/baby,changing,mat?lock=508',
+    'https://loremflickr.com/900/700/bottle,travel,bag?lock=509',
+    'https://loremflickr.com/900/700/parent,baby,backpack?lock=510'
+  ]
 }
 
 const groups = [
